@@ -1,110 +1,152 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
-    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>skizzOfrane.net - Act ur life</title>
-    <meta http-equiv="content-language" content="fr" />
-    <meta name="creator" content="skizzOfrane" />
-    <meta name="robots" content="index" />
-    <meta name="distribution" content="global" />
-    <meta name="revisit-after" content="30 days" />
-    <meta name="identifier-url" content="http://www.skizzofrane.net" />
+    <meta name="creator" content="skizzOfrane">
+    <meta name="robots" content="index">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="30 days">
+    <meta name="identifier-url" content="http://www.skizzofrane.net">
 
-    <style type="text/css">
+    <style>
         body {
             background: black;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        div {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 620px;
-            height: 468px;
-            margin: -234px 0px 0px -310px;
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            grid-template-rows: repeat(3, 150px);
+            gap: 4px;
+            max-width: 620px;
+            margin: 0 auto;
         }
 
-        a {
-            float: left;
-            display: block;
-            width: 200px;
-            height: 150px;
-            margin: 2px;
+        .grid-container a{
+            width: 100%;
+            height: 100%;
             border: 1px solid gray;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: background-image 0.3s ease;
         }
 
-        span {
-            display: none;
+       .grid-container a span {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         #sof {
             border: 1px solid black;
-            background: url('sof.gif');
+            background-image: url('sof.gif');
+            grid-column: 2;
+            grid-row: 2;
         }
 
         #sof1 {
-            background: url('sof1.jpg');
+            background-image: url('sof1.jpg');
         }
 
         #sof2 {
-            background: url('sof4.jpg');
+            background-image: url('sof4.jpg');
         }
 
         #sof3 {
-            background: url('sof3.jpg');
+            background-image: url('sof3.jpg');
         }
 
         #sof4 {
-            background: url('sof7.jpg');
+            background-image: url('sof7.jpg');
         }
 
         #sof5 {
-            background: url('sof5.jpg');
+            background-image: url('sof5.jpg');
         }
 
         #sof6 {
-            background: url('sof6.jpg');
+            background-image: url('sof6.jpg');
         }
 
         #sof7 {
-            background: url('sof2.jpg');
+            background-image: url('sof2.jpg');
         }
 
         #sof8 {
-            background: url('sof8.jpg');
+            background-image: url('sof8.jpg');
         }
 
         #sof2:hover,
         #sof3:hover,
         #sof4:hover,
         #sof7:hover {
-            background: url('skizz.jpg');
+            background-image: url('skizz.jpg');
         }
 
         #sof1:hover,
         #sof5:hover,
         #sof6:hover,
         #sof8:hover {
-            background: url('frane.jpg');
+            background-image: url('frane.jpg');
+        }
+
+        @media (max-width: 640px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 150px);
+                width: 100%;
+                max-width: 420px;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            #sof {
+                grid-column: 1 / span 2;
+                grid-row: 3;
+            }
         }
     </style>
-
 </head>
 
 <body>
-    <div>
+    <div class="grid-container">
         <a id="sof1" href="./frane"><span>frane</span></a>
         <a id="sof2" href="./skizz"><span>skizz</span></a>
         <a id="sof3" href="./skizz"><span>skizz</span></a>
-        <a id="sof4" href="./skizz"><span>skizz</span></a><a href="mailto:skizzofrane.net@liebrex.net"
-            id="sof"><span>act ur life</span></a>
+        <a id="sof4" href="./skizz"><span>skizz</span></a>
+        <a id="sof" href="mailto:skizzofrane.net@liebrex.net"><span>act ur life</span></a>
         <a id="sof5" href="./frane"><span>frane</span></a>
         <a id="sof6" href="./frane"><span>frane</span></a>
         <a id="sof7" href="./skizz"><span>skizz</span></a>
         <a id="sof8" href="./frane"><span>frane</span></a>
     </div>
+
+    <script>
+        // Add potential image preloading to prevent flicker on hover
+        document.addEventListener('DOMContentLoaded', function () {
+            const preloadImages = ['skizz.jpg', 'frane.jpg'];
+            preloadImages.forEach(img => {
+                const image = new Image();
+                image.src = img;
+            });
+        });
+    </script>
 </body>
 
 </html>
