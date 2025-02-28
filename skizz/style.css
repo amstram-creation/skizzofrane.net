@@ -1,0 +1,45 @@
+BODY 
+{
+background-color:#97B26B;
+color: #000000;
+font-family: tahoma;
+font-size: 14px;
+}
+
+TD {vertical-align:top;}
+IMG {border:0;}
+
+A:Hover {text-decoration:none; color:#4C7F22;}
+A:Link {text-decoration:none; color:#416B1F;}
+A:Visited {text-decoration:none; color:#E2442B;}
+
+.edit {text-decoration: line-through;}
+.note {font-size:11px}
+.bold {font-weight:bold}
+.italic {font-style: italic;}
+
+.compt {position:absolute; top: 10px; left: 10px;}
+
+.cal {width:200px; height:80px; position:absolute; right:5%; top: 3%; font-size:12px;}
+
+.iframe {padding-left:10px; width:350px; height:70%; position:absolute; top:15%; right:38%; overflow:auto; background-color:#97B26B}
+
+.menu {width: 300px; height:100px; position:absolute; left:7%; top: 20%;}
+.retr {text-indent:5ex; font-size:13px;}
+.retr2 {text-indent:20ex; font-size:12px;}
+
+.div {position:absolute; top:30%; left:25%;}
+
+.img {width:350px; height:280px; position:absolute; bottom: 10px; right: 10px; border:0;}
+
+.mail {position:absolute; bottom: 20px; left: 20px;}
+
+.moz {position:absolute; bottom: 5px; left: 5px;font-size: 12px;}
+
+.arch {text-decoration:none;}
+.archtb {text-align:center; width:100%; height:80%}
+
+
+
+
+
