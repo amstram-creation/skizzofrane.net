@@ -157,7 +157,6 @@
 
     <script>
         // Add potential image preloading to prevent flicker on hover
-        /*
         document.addEventListener('DOMContentLoaded', function () {
             const preloadImages = ['skizz.jpg', 'frane.jpg'];
             preloadImages.forEach(img => {
@@ -173,7 +172,7 @@
                 document.querySelectorAll('nav>a').forEach(el => {
                     next = next_links.pop();
                     img = images.pop();
-                    el.setAttribute('href', `./${next}`);
+                    el.setAttribute('href', `./public/${next}`);
                     el.setAttribute('data-img', img);
                     el.querySelector('span').textContent = next;
                 });
@@ -181,7 +180,6 @@
             }, 5000);
 
         });
-        */
     </script>
 </body>
 
