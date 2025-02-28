@@ -56,37 +56,38 @@
             border: 0;
         }
 
-        nav>a:nth-child(1) {
+        [data-img="sof1"] {
             background-image: url('sof1.jpg');
         }
 
-        nav>a:nth-child(2) {
-            background-image: url('sof4.jpg');
-        }
-
-        nav>a:nth-child(3) {
-            background-image: url('sof3.jpg');
-        }
-
-        nav>a:nth-child(4) {
-            background-image: url('sof7.jpg');
-        }
-
-        nav>a:nth-child(6) {
-            background-image: url('sof5.jpg');
-        }
-
-        nav>a:nth-child(7) {
-            background-image: url('sof6.jpg');
-        }
-
-        nav>a:nth-child(8) {
+        [data-img="sof2"] {
             background-image: url('sof2.jpg');
         }
 
-        nav>a:nth-child(9) {
+        [data-img="sof3"] {
+            background-image: url('sof3.jpg');
+        }
+
+        [data-img="sof4"] {
+            background-image: url('sof4.jpg');
+        }
+
+        [data-img="sof5"] {
+            background-image: url('sof5.jpg');
+        }
+
+        [data-img="sof6"] {
+            background-image: url('sof6.jpg');
+        }
+
+        [data-img="sof7"] {
+            background-image: url('sof7.jpg');
+        }
+
+        [data-img="sof8"] {
             background-image: url('sof8.jpg');
         }
+
 
         a[href="./frane"]:hover {
             background-image: url('frane.jpg');
@@ -123,15 +124,16 @@
 
 <body>
     <nav class="grid-container">
-        <a href="./frane"><span>frane</span></a>
-        <a href="./skizz"><span>skizz</span></a>
-        <a href="./skizz"><span>skizz</span></a>
-        <a href="./skizz"><span>skizz</span></a>
+        <a href="./frane" data-img="sof1"><span>frane</span></a>
+        <a href="./skizz" data-img="sof4"><span>skizz</span></a>
+        <a href="./frane" data-img="sof3"><span>frane</span></a>
+        <a href="./skizz" data-img="sof7"><span>skizz</span></a>
         <h1><a href="mailto:skizzofrane.net@liebrex.net">act ur life</a></h1>
-        <a href="./frane"><span>frane</span></a>
-        <a href="./frane"><span>frane</span></a>
-        <a href="./skizz"><span>skizz</span></a>
-        <a href="./frane"><span>frane</span></a>
+
+        <a href="./frane" data-img="sof5"><span>frane</span></a>
+        <a href="./skizz" data-img="sof6"><span>skizz</span></a>
+        <a href="./frane" data-img="sof2"><span>frane</span></a>
+        <a href="./skizz" data-img="sof8"><span>skizz</span></a>
     </nav>
 
     <script>
@@ -142,6 +144,25 @@
                 const image = new Image();
                 image.src = img;
             });
+
+            const intervalId = setInterval(() => {
+                // Your code to execute every 100ms
+
+                let next_links = [...Array(4).fill('skizz'), ...Array(4).fill('frane')].sort(() => Math.random() - 0.5);
+                let images = ['sof1', 'sof2', 'sof3', 'sof4', 'sof5', 'sof6', 'sof7', 'sof8'].sort(() => Math.random() - 0.5);
+                let next, img;
+                document.querySelectorAll('nav>a').forEach(el => {
+                    next = next_links.pop();
+                    img = images.pop();
+                    el.setAttribute('href', `./${next}`);
+                    el.setAttribute('data-img', img);
+                    el.querySelector('span').textContent = next;
+                });
+
+            }, 5000);
+
+            // To stop execution later:
+            // clearInterval(intervalId);
         });
     </script>
 </body>
