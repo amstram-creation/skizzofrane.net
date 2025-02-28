@@ -12,39 +12,59 @@
     <meta name="identifier-url" content="http://www.skizzofrane.net">
 
     <style>
-        body,
-        h1 {
+        :root {
+            --link-width: 200px;
+            --link-height: 150px;
+            --link-gap: 3px;
+            --link-color: white;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             background: black;
             margin: 0;
             padding: 0;
+            height: 100vh;
+        }
+
+        nav>h1 {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        body {
-            height: 100vh;
-
+        nav>h1 a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 200px);
-            grid-template-rows: repeat(3, 150px);
-            gap: 4px;
-            max-width: 620px;
+        nav {
+            width: 200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(1, 200px);
+            grid-template-rows: repeat(9, 150px);
+            gap: var(--link-gap);
+            max-width: 620px;
+            box-sizing: border-box;
         }
 
-        .grid-container>*:not(h1) {
+        nav>a {
+            display: block;
+            width: 100%;
+            height: 100%;
             border: 1px solid gray;
             background-size: cover;
             background-position: center;
-            position: relative;
-            transition: background-image 0.3s ease;
         }
 
-        .grid-container>* span {
+        nav span {
             position: absolute;
             width: 1px;
             height: 1px;
@@ -54,6 +74,28 @@
             clip: rect(0, 0, 0, 0);
             white-space: nowrap;
             border: 0;
+        }
+
+        @media screen and (min-width: calc(3*206px)) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            nav {
+                grid-template-columns: repeat(3, 200px);
+                grid-template-rows: repeat(3, 150px);
+                gap: var(--link-gap);
+                width: 100%;
+                max-width: 620px;
+                box-sizing: border-box;
+            }
+
+            nav>a {
+                margin: 0;
+            }
+
         }
 
         [data-img="sof1"] {
@@ -96,29 +138,6 @@
         a[href="./skizz"]:hover {
             background-image: url('skizz.jpg');
         }
-
-        h1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 a {
-            text-decoration: none;
-            color: white;
-            font-size: 1.5em;
-        }
-
-        @media (max-width: 640px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(5, 150px);
-                width: 100%;
-                max-width: 420px;
-                padding: 10px;
-                box-sizing: border-box;
-            }
-        }
     </style>
 </head>
 
@@ -128,7 +147,7 @@
         <a href="./skizz" data-img="sof4"><span>skizz</span></a>
         <a href="./frane" data-img="sof3"><span>frane</span></a>
         <a href="./skizz" data-img="sof7"><span>skizz</span></a>
-        <h1><a href="mailto:skizzofrane.net@liebrex.net">act ur life</a></h1>
+        <h1 class="f-centered"><a href="mailto:skizzofrane.net@liebrex.net">act ur life</a></h1>
 
         <a href="./frane" data-img="sof5"><span>frane</span></a>
         <a href="./skizz" data-img="sof6"><span>skizz</span></a>
@@ -138,6 +157,7 @@
 
     <script>
         // Add potential image preloading to prevent flicker on hover
+        /*
         document.addEventListener('DOMContentLoaded', function () {
             const preloadImages = ['skizz.jpg', 'frane.jpg'];
             preloadImages.forEach(img => {
@@ -146,7 +166,6 @@
             });
 
             const intervalId = setInterval(() => {
-                // Your code to execute every 100ms
 
                 let next_links = [...Array(4).fill('skizz'), ...Array(4).fill('frane')].sort(() => Math.random() - 0.5);
                 let images = ['sof1', 'sof2', 'sof3', 'sof4', 'sof5', 'sof6', 'sof7', 'sof8'].sort(() => Math.random() - 0.5);
@@ -161,9 +180,8 @@
 
             }, 5000);
 
-            // To stop execution later:
-            // clearInterval(intervalId);
         });
+        */
     </script>
 </body>
 
