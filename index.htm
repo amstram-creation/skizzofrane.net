@@ -12,14 +12,19 @@
     <meta name="identifier-url" content="http://www.skizzofrane.net">
 
     <style>
-        body {
+        body,
+        h1 {
             background: black;
             margin: 0;
             padding: 0;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        body {
+            height: 100vh;
+
         }
 
         .grid-container {
@@ -31,9 +36,7 @@
             margin: 0 auto;
         }
 
-        .grid-container a{
-            width: 100%;
-            height: 100%;
+        .grid-container>*:not(h1) {
             border: 1px solid gray;
             background-size: cover;
             background-position: center;
@@ -41,7 +44,7 @@
             transition: background-image 0.3s ease;
         }
 
-       .grid-container a span {
+        .grid-container>* span {
             position: absolute;
             width: 1px;
             height: 1px;
@@ -53,57 +56,56 @@
             border: 0;
         }
 
-        #sof {
-            border: 1px solid black;
-            background-image: url('sof.gif');
-            grid-column: 2;
-            grid-row: 2;
-        }
-
-        #sof1 {
+        nav>a:nth-child(1) {
             background-image: url('sof1.jpg');
         }
 
-        #sof2 {
+        nav>a:nth-child(2) {
             background-image: url('sof4.jpg');
         }
 
-        #sof3 {
+        nav>a:nth-child(3) {
             background-image: url('sof3.jpg');
         }
 
-        #sof4 {
+        nav>a:nth-child(4) {
             background-image: url('sof7.jpg');
         }
 
-        #sof5 {
+        nav>a:nth-child(6) {
             background-image: url('sof5.jpg');
         }
 
-        #sof6 {
+        nav>a:nth-child(7) {
             background-image: url('sof6.jpg');
         }
 
-        #sof7 {
+        nav>a:nth-child(8) {
             background-image: url('sof2.jpg');
         }
 
-        #sof8 {
+        nav>a:nth-child(9) {
             background-image: url('sof8.jpg');
         }
 
-        #sof2:hover,
-        #sof3:hover,
-        #sof4:hover,
-        #sof7:hover {
+        a[href="./frane"]:hover {
+            background-image: url('frane.jpg');
+        }
+
+        a[href="./skizz"]:hover {
             background-image: url('skizz.jpg');
         }
 
-        #sof1:hover,
-        #sof5:hover,
-        #sof6:hover,
-        #sof8:hover {
-            background-image: url('frane.jpg');
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
         }
 
         @media (max-width: 640px) {
@@ -115,27 +117,22 @@
                 padding: 10px;
                 box-sizing: border-box;
             }
-
-            #sof {
-                grid-column: 1 / span 2;
-                grid-row: 3;
-            }
         }
     </style>
 </head>
 
 <body>
-    <div class="grid-container">
-        <a id="sof1" href="./frane"><span>frane</span></a>
-        <a id="sof2" href="./skizz"><span>skizz</span></a>
-        <a id="sof3" href="./skizz"><span>skizz</span></a>
-        <a id="sof4" href="./skizz"><span>skizz</span></a>
-        <a id="sof" href="mailto:skizzofrane.net@liebrex.net"><span>act ur life</span></a>
-        <a id="sof5" href="./frane"><span>frane</span></a>
-        <a id="sof6" href="./frane"><span>frane</span></a>
-        <a id="sof7" href="./skizz"><span>skizz</span></a>
-        <a id="sof8" href="./frane"><span>frane</span></a>
-    </div>
+    <nav class="grid-container">
+        <a href="./frane"><span>frane</span></a>
+        <a href="./skizz"><span>skizz</span></a>
+        <a href="./skizz"><span>skizz</span></a>
+        <a href="./skizz"><span>skizz</span></a>
+        <h1><a href="mailto:skizzofrane.net@liebrex.net">act ur life</a></h1>
+        <a href="./frane"><span>frane</span></a>
+        <a href="./frane"><span>frane</span></a>
+        <a href="./skizz"><span>skizz</span></a>
+        <a href="./frane"><span>frane</span></a>
+    </nav>
 
     <script>
         // Add potential image preloading to prevent flicker on hover
